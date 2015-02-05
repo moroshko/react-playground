@@ -24,7 +24,8 @@ and implements the following:
 
 #### To develop:
 
-`gulp`
+1. `gulp`
+2. Open `dist/index.html` in your favourite browser
 
 #### To build the app for production:
 
