@@ -5,6 +5,7 @@ var less = require('gulp-less');
 var express = require('express');
 var livereload = require('gulp-livereload');
 var htmlreplace = require('gulp-html-replace');
+var eslint = require('gulp-eslint');
 var shell = require('gulp-shell');
 
 gulp.task('server', function() {
@@ -21,7 +22,7 @@ gulp.task('server', function() {
 });
 
 gulp.task('browserify:dev', function() {
-  gulp.src('src/app.js')
+  return gulp.src('src/app.js')
     .pipe(browserify({ transform: ['6to5ify', 'reactify'] }))
     .pipe(concat('app.js'))
     .pipe(gulp.dest('dist'))
@@ -29,27 +30,27 @@ gulp.task('browserify:dev', function() {
 });
 
 gulp.task('browserify:prod', function() {
-  gulp.src('src/app.js')
+  return gulp.src('src/app.js')
     .pipe(browserify({ transform: ['6to5ify', 'reactify'] }))
     .pipe(concat('app.js'))
     .pipe(gulp.dest('dist'));
 });
 
 gulp.task('less:dev', function() {
-  gulp.src('src/app.less')
+  return gulp.src('src/app.less')
     .pipe(less())
     .pipe(gulp.dest('dist'))
     .pipe(livereload());
 });
 
 gulp.task('less:prod', function() {
-  gulp.src('src/app.less')
+  return gulp.src('src/app.less')
     .pipe(less())
     .pipe(gulp.dest('dist'));
 });
 
 gulp.task('copy-index:dev', function() {
-  gulp.src('src/index.html')
+  return gulp.src('src/index.html')
     .pipe(htmlreplace({
       livereload: [
         'http://localhost:35729/livereload.js?snipver=1'
@@ -60,11 +61,18 @@ gulp.task('copy-index:dev', function() {
 });
 
 gulp.task('copy-index:prod', function() {
-  gulp.src('src/index.html')
+  return gulp.src('src/index.html')
     .pipe(htmlreplace({
       livereload: []
     }))
     .pipe(gulp.dest('dist'));
+});
+
+gulp.task('lint', function() {
+  return gulp.src(['src/**/*.js'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failOnError());
 });
 
 gulp.task('build:dev', ['browserify:dev', 'less:dev', 'copy-index:dev']);

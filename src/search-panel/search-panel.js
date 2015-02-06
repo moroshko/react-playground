@@ -1,3 +1,5 @@
+'use strict';
+
 var React = require('react');
 var Questions = require('./questions/questions');
 var QuestionSearch = require('./question-search/question-search');

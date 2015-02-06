@@ -1,3 +1,5 @@
+'use strict';
+
 jest.dontMock('../questions.js');
 
 var React = require('react/addons');

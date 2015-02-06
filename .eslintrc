@@ -1,0 +1,23 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "jasmine": true
+  },
+  "ecmaFeatures": {
+    "jsx": true,
+    "defaultParams": true,
+    "templateStrings": true
+  },
+  "plugins": [
+    "nodeca"
+  ],
+  "globals": {
+    "jest": true
+  },
+  "rules": {
+    "nodeca/indent": 2,
+    "space-after-keywords": "always",
+    "quotes": "single"
+  }
+}
