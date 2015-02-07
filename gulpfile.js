@@ -79,7 +79,7 @@ gulp.task('build:dev', ['browserify:dev', 'less:dev', 'copy-index:dev']);
 gulp.task('build:prod', ['browserify:prod', 'test', 'less:prod', 'copy-index:prod']);
 
 gulp.task('watch', function() {
-  gulp.watch('src/**/*.js', ['browserify:dev', 'test']);
+  gulp.watch('src/**/*.js', ['browserify:dev', 'lint', 'test']);
   gulp.watch('src/**/*.less', ['less:dev']);
   gulp.watch('src/index.html', ['copy-index:dev']);
 });
