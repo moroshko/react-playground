@@ -4,15 +4,15 @@
   "description": "React Playground",
   "repository": {
     "type": "git",
-    "url": "git://github.com/SEEK-Jobs/react-playground.git"
+    "url": "git://github.com/moroshko/react-playground.git"
   },
   "author": {
     "name": "Misha Moroshko"
   },
   "bugs": {
-    "url": "https://github.com/SEEK-Jobs/react-playground/issues"
+    "url": "https://github.com/moroshko/react-playground/issues"
   },
-  "homepage": "https://github.com/SEEK-Jobs/react-playground",
+  "homepage": "https://github.com/moroshko/react-playground",
   "scripts": {
     "test": "jest"
   },
@@ -37,7 +37,6 @@
     "react": "~0.12.2",
     "react-tools": "^0.12.2",
     "reactify": "~1.0.0",
-    "gulp-shell": "~0.2.11",
     "eslint": "~0.13.0",
     "gulp-eslint": "~0.3.0",
     "eslint-plugin-nodeca": "~1.0.3"

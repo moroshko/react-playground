@@ -6,7 +6,7 @@ var express = require('express');
 var livereload = require('gulp-livereload');
 var htmlreplace = require('gulp-html-replace');
 var eslint = require('gulp-eslint');
-var shell = require('gulp-shell');
+var exec = require('child_process').exec;
 
 gulp.task('server', function() {
   // Set up an express server (but not starting it yet)
@@ -84,6 +84,11 @@ gulp.task('watch', function() {
   gulp.watch('src/index.html', ['copy-index:dev']);
 });
 
-gulp.task('test', shell.task('npm test', { ignoreErrors: true }));
+gulp.task('test', function(callback) {
+  exec('npm test', function(err, stdout) {
+    console.log(stdout);
+    callback(err);
+  });
+});
 
 gulp.task('default', ['server', 'build:dev', 'watch']);
